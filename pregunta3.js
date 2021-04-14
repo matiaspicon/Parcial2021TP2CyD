@@ -3,7 +3,19 @@
 // si la longitud del array es < 3 se debe retornar undefined
 
 const greater3 = nums => {
+
+    nums.sort((a,b)=> b - a)
     
+    if(nums.length < 3 || (nums[0]==nums[1]==nums[2])) return undefined
+    greaters = []
+
+    nums.map(num => {
+        if(greaters.findIndex(a => a == num) == -1){
+            greaters.push(num)
+        }
+    })
+    return greaters[2]
+
 }
 
 

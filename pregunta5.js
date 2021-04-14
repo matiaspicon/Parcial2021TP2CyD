@@ -20,3 +20,23 @@ const beers = [
     { name: 'Stolen Fruit', abv: 4.6, label: 'https://s3.amazonaws.com/brewerydbapi/beer/YGT30k/upload_uVCHP7-large.png', type: 'Wheat' },
 ];
 
+
+function changeURL(beers, newURL, file_extension){
+  beers = beers.map(beer =>{
+      folder = beer.label
+      .split("beer")
+      .pop()
+      .split("/")[1]
+      name_file = beer.name.toLowerCase().replace(" ","_") + file_extension
+      beer.label = [newURL,folder,name_file].join("/")
+    return beer
+  })
+
+
+}
+
+newURL = "https://tecnoshare.sharepoint.com/sites/beer"
+file_extension = ".pn"
+changeURL(beers,newURL)
+console.log(beers)
+
