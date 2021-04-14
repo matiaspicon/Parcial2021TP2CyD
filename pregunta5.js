@@ -26,7 +26,7 @@ const file_extension = ".png"
 
 
 function changeURL(beers, newURL, file_extension) {
-  beers = beers.map(beer => {
+  beers.map(beer => {
     folder = beer.label
       .split("beer")
       .pop()
