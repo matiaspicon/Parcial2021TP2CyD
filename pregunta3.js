@@ -4,23 +4,23 @@
 
 const greater3 = nums => {
 
-    nums.sort((a,b)=> b - a)
-    
-    if(nums.length < 3 || (nums[0]==nums[1]==nums[2])) return undefined
-    greaters = []
+    if (nums.length < 3) return undefined;
+
+    nums.sort((a, b) => b - a);
+    const greaters = [];
 
     nums.map(num => {
-        if(greaters.findIndex(a => a == num) == -1){
-            greaters.push(num)
+        if (greaters.findIndex(a => a == num) == -1) {
+            greaters.push(num);
         }
-    })
-    return greaters[2]
+    });
+    return greaters[2];
 
 }
 
 
 // TESTs no modificar
-console.log(greater3([4,3,4,5,1]) === 3);
-console.log(greater3([3,4]) === undefined);
-console.log(greater3([4,4,4]) === undefined);
-console.log(greater3([1,1,2,5]) === 1);
+console.log(greater3([4, 3, 4, 5, 1]) === 3);
+console.log(greater3([3, 4]) === undefined);
+console.log(greater3([4, 4, 4]) === undefined);
+console.log(greater3([1, 1, 2, 5]) === 1);

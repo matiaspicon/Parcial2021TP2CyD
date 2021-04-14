@@ -13,30 +13,31 @@
   Beers
 */
 const beers = [
-    { name: 'Purple Iris', abv: 6.8, label: 'https://s3.amazonaws.com/brewerydbapi/beer/dMLwGo/upload_yiUllE-large.png', type: 'IPA' },
-    { name: 'Orange Blossom Pilsner', abv: 5.5, label: 'https://s3.amazonaws.com/brewerydbapi/beer/Rczcb9/upload_9Nhxxl-large.png', type: 'Pilsner' },
-    { name: 'Darkness', abv: 4.2, label: 'https://s3.amazonaws.com/brewerydbapi/beer/lnxbIV/upload_idNXFf-large.png', type: 'Stout' },
-    { name: 'Belgian Wit', abv: 5.4, label: 'https://s3.amazonaws.com/brewerydbapi/beer/3CvVQG/upload_xOMnlK-large.png', type: 'Wheat' },
-    { name: 'Stolen Fruit', abv: 4.6, label: 'https://s3.amazonaws.com/brewerydbapi/beer/YGT30k/upload_uVCHP7-large.png', type: 'Wheat' },
+  { name: 'Purple Iris', abv: 6.8, label: 'https://s3.amazonaws.com/brewerydbapi/beer/dMLwGo/upload_yiUllE-large.png', type: 'IPA' },
+  { name: 'Orange Blossom Pilsner', abv: 5.5, label: 'https://s3.amazonaws.com/brewerydbapi/beer/Rczcb9/upload_9Nhxxl-large.png', type: 'Pilsner' },
+  { name: 'Darkness', abv: 4.2, label: 'https://s3.amazonaws.com/brewerydbapi/beer/lnxbIV/upload_idNXFf-large.png', type: 'Stout' },
+  { name: 'Belgian Wit', abv: 5.4, label: 'https://s3.amazonaws.com/brewerydbapi/beer/3CvVQG/upload_xOMnlK-large.png', type: 'Wheat' },
+  { name: 'Stolen Fruit', abv: 4.6, label: 'https://s3.amazonaws.com/brewerydbapi/beer/YGT30k/upload_uVCHP7-large.png', type: 'Wheat' },
 ];
 
+const newURL = "https://tecnoshare.sharepoint.com/sites/beer"
+const file_extension = ".png"
 
-function changeURL(beers, newURL, file_extension){
-  beers = beers.map(beer =>{
-      folder = beer.label
+
+
+function changeURL(beers, newURL, file_extension) {
+  beers = beers.map(beer => {
+    folder = beer.label
       .split("beer")
       .pop()
-      .split("/")[1]
-      name_file = beer.name.toLowerCase().replace(" ","_") + file_extension
-      beer.label = [newURL,folder,name_file].join("/")
-    return beer
-  })
-
-
+      .split("/")[1];
+    name_file = beer.name.toLowerCase().replace(" ", "_") + file_extension;
+    beer.label = [newURL, folder, name_file].join("/");
+    return beer;
+  });
+  return beers;
 }
 
-newURL = "https://tecnoshare.sharepoint.com/sites/beer"
-file_extension = ".pn"
-changeURL(beers,newURL)
-console.log(beers)
+
+console.log(changeURL(beers, newURL, file_extension))
 
